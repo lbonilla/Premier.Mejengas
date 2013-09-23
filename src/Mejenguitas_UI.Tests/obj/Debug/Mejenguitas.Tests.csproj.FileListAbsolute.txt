@@ -74,6 +74,5 @@ C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tes
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tests\obj\Debug\Mejenguitas.Tests.csprojResolveAssemblyReference.cache
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tests\obj\Debug\Mejenguitas_UI.Tests.dll
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tests\obj\Debug\Mejenguitas_UI.Tests.pdb
-C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tests\bin\Debug\WebActivatorEx.dll
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tests\bin\Debug\WebGrease.dll
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas_UI.Tests\bin\Debug\Antlr3.Runtime.dll
