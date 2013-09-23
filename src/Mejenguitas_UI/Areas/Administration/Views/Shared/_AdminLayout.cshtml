@@ -4,10 +4,39 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <!-- Le styles -->
+    @Styles.Render("~/Content/themes/base/css", "~/Content/css")
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body
+        {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <link href="~/Content/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    This is the header
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                This is a section red a section
+            </div>
+            <div class="col-xs-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
 </body>
+
 </html>
