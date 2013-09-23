@@ -1,0 +1,8 @@
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\bin\Debug\Mejenguitas.Domain.dll.config
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\bin\Debug\Mejenguitas.Domain.dll
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\bin\Debug\Mejenguitas.Domain.pdb
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\bin\Debug\EntityFramework.dll
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\bin\Debug\EntityFramework.xml
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.dll
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.pdb
+C:\Users\lbonilla\Dropbox\pruebas\MVC_Mejenguitas\Mejenguitas\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.csprojResolveAssemblyReference.cache

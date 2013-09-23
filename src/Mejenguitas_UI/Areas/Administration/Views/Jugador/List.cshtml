@@ -1,0 +1,59 @@
+﻿@model IQueryable<Mejenguitas.Domain.Entities.Jugador>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <h1>Lista de Jugadores</h1>
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Image</th>
+                    <th>Nombre</th>
+                    <th>Nickname</th>
+                    <th>Teléfono</th>
+                    <td>Correo</td>
+                    <td>Acciones</td>
+                </tr>
+                @foreach (var jugador in @Model)
+                {                    
+                    <tr>
+
+                        @if (jugador.Avatar != null)
+                        {
+                            <td>
+                                <div>
+                                    <img width="75" height="75" src="@Url.Action("ObtenerImagen", "Jugador", new {jugador.Id})"/>
+                                </div>
+                            </td>
+                        }
+                        <td>
+                            @Html.ActionLink(jugador.Nombre, "Edit", new { id=jugador.Id })
+                        </td>
+                        <td>
+                            @jugador.NickName
+                        </td>
+                        <td>
+                            @jugador.Telefono
+                        </td>
+                        <td>
+                            @jugador.Correo
+                        </td>
+                        <td>
+                            @Html.ActionLink("Eliminar", "Delete", "Jugador", new { jugador.Id }, null)
+                        </td>
+                    </tr>
+                    
+                }
+
+            </tbody>
+        </table>
+        @Html.ActionLink("Crear", "Create")
+
+    </div>
+</body>
+</html>

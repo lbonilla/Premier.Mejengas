@@ -1,0 +1,23 @@
+﻿@model Mejenguitas.Domain.Entities.Juego
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Edit", "Juego", FormMethod.Post))
+        {
+            @Html.EditorForModel()
+            <input type="submit" value="Save" />
+        }
+    </div>
+</body>
+</html>
