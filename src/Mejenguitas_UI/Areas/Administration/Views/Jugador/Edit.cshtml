@@ -1,91 +1,76 @@
 ﻿@model Mejenguitas.Domain.Entities.Jugador
-
 @{
-    Layout = null;
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";    
 }
+@using (Html.BeginForm("Edit", "Jugador", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <fieldset>
+        <legend>Jugador</legend>
 
-<!DOCTYPE html>
+        @Html.HiddenFor(model => model.Id)
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
-    @using (Html.BeginForm("Edit", "Jugador", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-    
-        <fieldset>
-            <legend>Jugador</legend>
-    
-            @Html.HiddenFor(model => model.Id)
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Nombre)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Nombre)
-                @Html.ValidationMessageFor(model => model.Nombre)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.NickName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.NickName)
-                @Html.ValidationMessageFor(model => model.NickName)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Correo)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Correo)
-                @Html.ValidationMessageFor(model => model.Correo)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Contrasenna)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Contrasenna)
-                @Html.ValidationMessageFor(model => model.Contrasenna)
-            </div>
-    
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Telefono)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Telefono)
-                @Html.ValidationMessageFor(model => model.Telefono)
-            </div>
-            
-            <div class="editor-field">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombre)
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NickName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NickName)
+            @Html.ValidationMessageFor(model => model.NickName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Correo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Correo)
+            @Html.ValidationMessageFor(model => model.Correo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Contrasenna)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Contrasenna)
+            @Html.ValidationMessageFor(model => model.Contrasenna)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefono)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefono)
+            @Html.ValidationMessageFor(model => model.Telefono)
+        </div>
+
+        <div class="editor-field">
             @if (@Model.Avatar == null)
             { 
                 @:None
             }
             else
             {
-                <img width="150" height="150" src="@Url.Action("ObtenerImagen", "Jugador", new {id= Model.Id })" />
+                <img width="150" height="150" src="@Url.Action("ObtenerImagen", "Jugador", new { id = Model.Id })" />
             }
-            <div> Upload new image: <input type="file" name="Image" /></div>
+            <div>Upload new image:
+                <input type="file" name="Image" /></div>
         </div>
 
-            <p>
-                <input type="submit" value="Save" />
-            </p>
-        </fieldset>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "List")
-    </div>
-</body>
-</html>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>

@@ -1,55 +1,44 @@
 ﻿@model IQueryable<Mejenguitas.Domain.Entities.Juego>
 
 @{
-    Layout = null;
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Lista de Juegos";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-    <h1>Lista de juegos</h1>
-    <div>
-        <table>
-            <tbody>
+<div>
+    <table>
+        <tbody>
+            <tr>
+                <th>Fecha</th>
+                <th>Lugar</th>
+                <th>Resultado</th>
+                <th>Equipo Ganador</th>
+                <td>Actions</td>
+            </tr>
+            @foreach (var juego in @Model)
+            {                    
                 <tr>
-                    <th>Fecha</th>
-                    <th>Lugar</th>
-                    <th>Resultado</th>
-                    <th>Equipo Ganador</th>
-                    <td>Actions</td>
+                    <td>
+                        @Html.ActionLink(juego.Fecha.ToString(), "Edit", juego)
+                    </td>
+                    <td>
+                        @juego.Lugar
+                    </td>
+                    <td>
+                        @juego.Resultado
+                    </td>
+                    <td>
+                        @juego.EquipoGanador
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Eliminar", "Delete", "Juego", new { juego.Id }, null)
+                    </td>
                 </tr>
-                @foreach (var juego in @Model)
-                {                    
-                    <tr>
-                        <td>
-                            @Html.ActionLink(juego.Fecha.ToString(), "Edit", juego)
-                        </td>
-                        <td>
-                            @juego.Lugar
-                        </td>
-                        <td>
-                            @juego.Resultado
-                        </td>
-                        <td>
-                            @juego.EquipoGanador
-                        </td>
-
-                        <td>
-                            @Html.ActionLink("Eliminar", "Delete", "Juego", new { juego.Id }, null)
-                        </td>
-                    </tr>
                     
-                }
+            }
 
-            </tbody>
-        </table>
-        @Html.ActionLink("Crear", "Create")
+        </tbody>
+    </table>
+    @Html.ActionLink("Crear", "Create")
 
-    </div>
-</body>
-</html>
+</div>
