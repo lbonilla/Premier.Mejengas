@@ -54,9 +54,9 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
         public RedirectToRouteResult Delete(int id)
         {
             if (repository.Eliminar(id))
-                TempData["message"] = "Se elimino el jugador exitosamente";
+                TempData["message"] = "Se eliminó el jugador exitosamente";
             else
-                TempData["message"] = "Sorry, El Jugador no fue eliminado..!! :D";
+                TempData["message"] = "El Jugador no fue eliminado";
 
             return RedirectToAction("List");
         }
@@ -70,7 +70,7 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
         public FileContentResult ObtenerImagen(int id)
         {
             Jugador jugador = repository.Jugadores.FirstOrDefault(j => j.Id == id);
-            if (jugador != null)
+            if (jugador != null && jugador.Avatar != null && jugador.AvatarMimeType != null)
                 return File(jugador.Avatar, jugador.AvatarMimeType);
             return null;
         }

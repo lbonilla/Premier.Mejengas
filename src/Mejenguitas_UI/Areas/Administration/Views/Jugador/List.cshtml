@@ -3,52 +3,41 @@
     Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Lista de Jugadores";
 }
+<div class="row">
+    @foreach (var jugador in @Model)
+    {
+        <div class="row">
+            <div class="col-xs-2">
+                <img width="100" height="100" src="@Url.Action("ObtenerImagen", "Jugador", new { jugador.Id })"/><br /><br />                
+                @Html.ActionLink(" ", "Edit", new { id = jugador.Id }, new { @class = "glyphicon glyphicon-pencil" , @title="Editar" })
+                @Html.ActionLink(" ", "Delete", new { jugador.Id }, new { @class = "glyphicon glyphicon-remove-circle" , @title="Eliminar" })
 
-<div>
-    <table>
-        <tbody>
-            <tr>
-                <th>Image</th>
-                <th>Nombre</th>
-                <th>Nickname</th>
-                <th>Teléfono</th>
-                <td>Correo</td>
-                <td>Acciones</td>
-            </tr>
-            @foreach (var jugador in @Model)
-            {                    
-                <tr>
-
-                    @if (jugador.Avatar != null)
-                    {
-                        <td>
-                            <div>
-                                <img width="75" height="75" src="@Url.Action("ObtenerImagen", "Jugador", new { jugador.Id })"/>
-                            </div>
-                        </td>
-                    }
-                    <td>
-                        @Html.ActionLink(jugador.Nombre, "Edit", new { id = jugador.Id })
-                    </td>
-                    <td>
-                        @jugador.NickName
-                    </td>
-                    <td>
+            </div>
+            <div class="col-xs-10">
+                <p>
+                    @jugador.Nombre
+                </p>
+                <p>
+                    @jugador.NickName
+                </p>
+                <p>
+                    @jugador.Correo
+                </p>
+                @if (jugador.Telefono != null) 
+                { 
+                    <p>
                         @jugador.Telefono
-                    </td>
-                    <td>
-                        @jugador.Correo
-                    </td>
-                    <td>
-                        @Html.ActionLink("Eliminar", "Delete", "Jugador", new { jugador.Id }, null)
-                    </td>
-                </tr>
-                    
-            }
-
-        </tbody>
-    </table>
-    @Html.ActionLink("Crear", "Create")
-
+                    </p>    
+                }                
+            </div>
+        </div>
+        <hr />
+    }
+    <div class="pull-right">
+        @Html.ActionLink(" ", "Create", null, new { @class = "glyphicon glyphicon-plus-sign" , @title="Crear" })
+    </div>
 </div>
+
+
+
 

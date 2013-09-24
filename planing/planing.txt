@@ -1,0 +1,16 @@
+Administracion
+---CRUD de Juegos
+
+-Eliminar
+-Crear
+   Programar un juego para una fecha
+   Establecer un juego como el vigente
+   
+-Editar
+   Cambiar la fecha de un juego
+   Establecer un juego como el vigente
+
+---CRUD de Jugadores
+ 
+---Listado de los juegos 
+---Premitir enrolar un jugador a un juego si ya no esta enrolado

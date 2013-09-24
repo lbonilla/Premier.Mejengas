@@ -1,76 +1,62 @@
 ﻿@model Mejenguitas.Domain.Entities.Jugador
 @{
-    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";    
+    Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Jugador";    
 }
-@using (Html.BeginForm("Edit", "Jugador", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    
-    <fieldset>
-        <legend>Jugador</legend>
-
-        @Html.HiddenFor(model => model.Id)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Nombre)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Nombre)
-            @Html.ValidationMessageFor(model => model.Nombre)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.NickName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.NickName)
-            @Html.ValidationMessageFor(model => model.NickName)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Correo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Correo)
-            @Html.ValidationMessageFor(model => model.Correo)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Contrasenna)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Contrasenna)
-            @Html.ValidationMessageFor(model => model.Contrasenna)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Telefono)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Telefono)
-            @Html.ValidationMessageFor(model => model.Telefono)
-        </div>
-
-        <div class="editor-field">
-            @if (@Model.Avatar == null)
-            { 
-                @:None
-            }
-            else
+<div class="row">
+    @using (Html.BeginForm("Edit", "Jugador", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {   
+        @Html.ValidationSummary()    
+        <dl class="dl-horizontal">
+            @if (@Model.Avatar != null)
             {
-                <img width="150" height="150" src="@Url.Action("ObtenerImagen", "Jugador", new { id = Model.Id })" />
+                <dt></dt>                
+                <dd>
+                    <img width="150" height="150" src="@Url.Action("ObtenerImagen", "Jugador", new { id = Model.Id })" />
+                </dd>
             }
-            <div>Upload new image:
-                <input type="file" name="Image" /></div>
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "List")
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.Nombre)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NickName)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.NickName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Correo)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.Correo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Contrasenna)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.Contrasenna)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+            <dd>
+                @Html.EditorFor(model => model.Telefono)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </dt>
+            <dd>
+                <input type="file" name="Image" />
+            </dd>
+        </dl>
+        <p class="pull-right">
+            @Html.ActionLink(" ", "List", null, new { @class = "glyphicon glyphicon-arrow-left", @title = "Volver" })
+            <input type="submit" value="Guardar" class="glyphicon glyphicon-floppy-disk" title="Guardar" />
+        </p>        
+    }
 </div>
+
+

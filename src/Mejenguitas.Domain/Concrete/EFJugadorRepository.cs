@@ -29,8 +29,11 @@ namespace Mejenguitas.Domain.Concrete
                 if (dbEntry != null)
                 {
                     dbEntry.NickName = jugador.NickName;
-                    dbEntry.Avatar = jugador.Avatar;
-                    dbEntry.AvatarMimeType = jugador.AvatarMimeType;
+                    if (jugador.Avatar != null && jugador.AvatarMimeType != null) 
+                    {
+                        dbEntry.Avatar = jugador.Avatar;
+                        dbEntry.AvatarMimeType = jugador.AvatarMimeType;    
+                    }                    
                     dbEntry.Contrasenna = jugador.Contrasenna;
                     dbEntry.Correo = jugador.Correo;
                     dbEntry.Nombre = jugador.Nombre;
