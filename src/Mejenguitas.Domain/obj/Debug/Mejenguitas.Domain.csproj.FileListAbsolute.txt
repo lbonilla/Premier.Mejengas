@@ -14,3 +14,11 @@ C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.dll
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.pdb
 C:\Users\faguero.PSCNET\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.csprojResolveAssemblyReference.cache
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\Debug\Mejenguitas.Domain.dll.config
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\Debug\Mejenguitas.Domain.dll
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\Debug\Mejenguitas.Domain.pdb
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\Debug\EntityFramework.dll
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\Debug\EntityFramework.xml
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.csprojResolveAssemblyReference.cache
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.dll
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.pdb

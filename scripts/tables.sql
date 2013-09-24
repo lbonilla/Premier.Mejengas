@@ -1,11 +1,11 @@
 
 create table Juego(
 	Id int identity Primary Key,
-	Resultado varchar(20),
+	Resultado varchar(20) DEFAULT '0 - 0',
 	Fecha DateTime,
 	Lugar varchar(100),
-	EquipoGanador int,
-	Estado int DEFAULT 0 ---0 ( NO JUGADO) ---1(Juego activo) ---(Juego terminado)
+	EquipoGanador int,--0 Empate, 1 Gano equipo Rojo , 2 Gana equipo Blanco
+	Estado int DEFAULT 0 ---0 ( NO JUGADO) ---1(Juego activo) ---2(Juego terminado)
 );
 
 create table Galeria(

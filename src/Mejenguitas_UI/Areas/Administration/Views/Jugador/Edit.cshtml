@@ -54,7 +54,8 @@
         </dl>
         <p class="pull-right">
             @Html.ActionLink(" ", "List", null, new { @class = "glyphicon glyphicon-arrow-left", @title = "Volver" })
-            <input type="submit" value="Guardar" class="glyphicon glyphicon-floppy-disk" title="Guardar" />
+            
+            <a href="#"  class="glyphicon glyphicon-floppy-disk" onclick="$(this).closest('form').submit()" title="Guardar"> </a>
         </p>        
     }
 </div>

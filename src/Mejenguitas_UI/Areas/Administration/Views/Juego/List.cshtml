@@ -4,37 +4,57 @@
     Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Lista de Juegos";
 }
-
 @if (@Model.Count() > 0)
-    {
-        foreach (var juego in @Model)
-        {          
-    <div class="container">
-        <div class="row">
-            <div class="cl-xs-1">
-
-                <h4>@Html.ActionLink(juego.Fecha.ToString(), "Edit", juego)</h4>
-                <h3>@juego.Resultado</h3>
-
-            </div>
-            <div class="cl-xs-1">
-                @juego.Lugar
-                @Html.ActionLink(" ", "Delete", "Juego", new { juego.Id }, null)
-
-                @*@juego.EquipoGanador*@
-            </div>
+{
+    foreach (var juego in @Model)
+    {          
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>@juego.Fecha.ToString()</h4>
+            <h4>@juego.Lugar</h4>
         </div>
+        <div class="col-xs-6">
+            <h4>@juego.Resultado</h4>
+            @if (juego.Estado == 2)
+            {
+                switch (@juego.EquipoGanador)
+                {
+                    case 0: 
+                <h4>Empate</h4>
+                        break;
+                    case 1: 
+                <h4>Gana Equipo Rojo</h4>
+                        break;
+                    case 2: 
+                <h4>Gana Equipo Blanco</h4>
+                        break;
+                }
+
+            }
+            else
+            {                
+                <h4>Juego Pendiente</h4>
+            }
 
         </div>
-        }
-    }
-    else
-    {
-        <div class="cl-xs-12">
-            There is not games.!
+        <div class="col-xs-12">
+            @Html.ActionLink(" ", "Edit", "Juego", new { juego.Id }, new { @class = "glyphicon glyphicon-pencil", title = "Editar" })
+            @Html.ActionLink(" ", "Delete", "Juego", new { juego.Id }, new { @class = "glyphicon glyphicon-remove-circle", title = "Eliminar" })
+
         </div>
-
-        }
-    @Html.ActionLink("Crear", "Create")
-
     </div>
+    <hr />
+    }
+}
+else
+{
+    <div class="cl-xs-12">
+        There is not games.!
+    </div>
+
+}
+<div class="pull-right">
+    @Html.ActionLink(" ", "Create", null, new { @class = "glyphicon glyphicon-plus-sign", @title = "Crear" })
+</div>
+
+

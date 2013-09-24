@@ -64,5 +64,17 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
         }
 
         #endregion
+
+        #region Others
+        public string GetJugadorGanador(int ganador) { 
+        
+            switch(ganador){
+                case 0: return "Juego pendiente";
+                case 1: return "Equipo Rojo";
+                case 2: return "Equipo Blanco";
+            }
+            return string.Empty;
+        }
+        #endregion
     }
 }

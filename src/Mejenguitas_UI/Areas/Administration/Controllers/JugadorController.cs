@@ -73,8 +73,7 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
             if (jugador != null && jugador.Avatar != null && jugador.AvatarMimeType != null)
                 return File(jugador.Avatar, jugador.AvatarMimeType);
             return null;
-        }
-
+        }       
         #endregion
     }
 
