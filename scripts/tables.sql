@@ -4,15 +4,16 @@ create table Juego(
 	Resultado varchar(20),
 	Fecha DateTime,
 	Lugar varchar(100),
-	EquipoGanador int
+	EquipoGanador int,
+	Estado int DEFAULT 0 ---0 ( NO JUGADO) ---1(Juego activo) ---(Juego terminado)
 );
 
 create table Galeria(
 	Id int identity Primary Key,
 	IdJuego int,
 	Descripcion varchar(100),
-	Objecto varbinary,
-	MimeTypeObjeto varbinary,
+	Objecto varbinary(MAX),
+	MimeTypeObjeto varchar(50),
 	CONSTRAINT FK_Galeria_Juego FOREIGN KEY (IdJuego)
 	REFERENCES Juego(Id)
 );
@@ -31,10 +32,10 @@ create table Jugador(
 	Nombre varchar(50),
 	NickName varchar(50),
 	Avatar varbinary,
-	AvatarMimeType varbinary,
+	AvatarMimeType varchar(50),
 	Correo varchar(100),
 	Contrasenna varchar(200),
-	Telefono varchar(30)
+	Telefono varchar(30)	
 )
 
 create table JuegoJugador(
@@ -51,6 +52,7 @@ create table JuegoJugador(
 	CONSTRAINT FK_JuegoJugador_Jugador FOREIGN KEY(IdJugador)
 	REFERENCES Jugador(Id)
 )
+
 
 
 

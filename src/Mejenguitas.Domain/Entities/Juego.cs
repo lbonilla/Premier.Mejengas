@@ -11,14 +11,19 @@ namespace Mejenguitas.Domain.Entities
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+
         public string Resultado { get; set; }
-        
-        [Required]        
+
+        [Required]
         [DataType(DataType.DateTime)]
         public DateTime Fecha { get; set; }
 
-
         public string Lugar { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
         public int EquipoGanador { get; set; }
+
+        [HiddenInput(DisplayValue=false)]
+        public int Estado { get; set; }
     }
 }
