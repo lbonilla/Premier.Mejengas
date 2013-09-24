@@ -30,6 +30,11 @@
                 This is a section red a section
             </div>
             <div class="col-xs-9">
+                @if (TempData["message"] != null) {
+                    <div class="Message">
+                        @TempData["message"]
+                    </div>                    
+                }
                 @RenderBody()
             </div>
         </div>

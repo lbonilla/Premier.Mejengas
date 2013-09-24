@@ -42,7 +42,7 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
                     image.InputStream.Read(jugador.Avatar, 0, image.ContentLength);
                 }
                 repository.Guardar(jugador);
-                TempData["message"] = string.Format("El jugador {0} fue registado.", jugador.Nombre);
+                TempData["message"] = string.Format("El jugador {0} fue registado exitosamente", jugador.Nombre);
                 return RedirectToAction("List");
             }
             else
