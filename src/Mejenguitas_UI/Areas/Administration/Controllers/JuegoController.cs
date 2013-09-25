@@ -8,6 +8,7 @@ using Mejenguitas.Domain.Entities;
 
 namespace Mejenguitas_UI.Areas.Administration.Controllers
 {
+    [Authorize]
     public class JuegoController : Controller
     {
         private IJuegoRepository repository;
