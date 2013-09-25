@@ -11,20 +11,11 @@ namespace Mejenguitas_UI
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute(
-                name: null,
-                url: "Administration",
-                defaults: new {controller = "Juego", action = "List" },
-                constraints: null,
-                namespaces: new[] { "Mejenguitas_UI.Areas.Administration.Controllers" }
-                );
-
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");            
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new {controller = "Juego", action = "List"}
+                defaults: new {controller = "Mejengas", action = "Index"}
             );
         }
     }

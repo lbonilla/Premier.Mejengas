@@ -1,16 +1,53 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <!-- Le styles -->
+    @Styles.Render( "~/Content/css")
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet">    
+    
+    <style>
+        body
+        {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
 </head>
 <body>
-    @RenderBody()
+    <div class="container ">
+        <div class="row page-header">
+            <div class="col-xs-9 ">
+                
+            </div>
+            <div class="col-xs-3">
+                @Html.ActionLink("Admin","List",new{area="Administration",controller="Juego"})
+                Login
 
+            </div>
+        </div>
+        <div class="row">
+     
+            <div class="col-xs-2" style="background-color:yellow">
+              
+            </div>
+            <div class="col-xs-7" >
+                @if (TempData["message"] != null) {
+                    <div class="Message">
+                        @TempData["message"]
+                    </div>                    
+                }
+                @RenderBody()                
+
+            </div>
+            <div class="col-xs-3" style="background-color:black">
+              
+            </div>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>
