@@ -6,8 +6,11 @@ function drawField() {
     var c = document.getElementById("fieldCanvas");
     if (c != null) {
         var ctx = c.getContext("2d");
-        ctx.fillStyle = "#FF0000";
-        ctx.fillStyle(0, 0, 150, 75);
+        ctx.fillStyle = "#00FF00";
+        ctx.fillRect(0, 0, 600, 350);
+        ctx.fillStyle = "#000000";
+        ctx.moveTo(300, 0);
+        ctx.stroke(300,350);
     }
 }
 drawField();
