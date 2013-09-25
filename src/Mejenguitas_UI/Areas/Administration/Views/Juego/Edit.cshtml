@@ -20,7 +20,7 @@
             <dl>
                 <dt>@Html.DisplayNameFor(@Model => @Model.Fecha)</dt>
                 <dd>
-                    @Html.TextBoxFor(@Model => @Model.Fecha, new { @class = "datepicker" })
+                    @Html.TextBoxFor(@Model => @Model.Fecha, new {@class = "datepicker", value= this.@Model.Fecha.ToString("dd/mm/yyyy")})
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(@Model => @Model.Lugar)</dt>
