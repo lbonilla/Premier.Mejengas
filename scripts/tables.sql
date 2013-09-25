@@ -4,7 +4,7 @@ create table Juego(
 	Resultado varchar(20) DEFAULT '0 - 0',
 	Fecha DateTime,
 	Lugar varchar(100),
-	EquipoGanador int,--0 Empate, 1 Gano equipo Rojo , 2 Gana equipo Blanco
+	EquipoGanador int,--0 Ninguno, 1 Gano equipo Rojo , 2 Gana equipo Blanco, --3  Empate
 	Estado int DEFAULT 0 ---0 ( NO JUGADO) ---1(Juego activo) ---2(Juego terminado)
 );
 

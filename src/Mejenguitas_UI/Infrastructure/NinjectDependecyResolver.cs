@@ -30,7 +30,7 @@ namespace Mejenguitas_UI.Infrastructure
         {            
             kernel.Bind<IJuegoRepository>().To<EFJuegoRepository>();
             kernel.Bind<IJugadorRepository>().To<EFJugadorRepository>();
-
+            kernel.Bind<IGaleriaRepository>().To<EFGaleriaRepository>();
         }
     }
 }

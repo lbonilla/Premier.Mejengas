@@ -1,11 +1,99 @@
 ﻿@model Mejenguitas.Domain.Entities.Juego
 @{
     Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Juego";
 }
-<div>
-    @using (Html.BeginForm("Edit", "Juego", FormMethod.Post))
-    {
-        @Html.EditorForModel()
-        <input type="submit" value="Save"  />
-    }
+<div class="col-xs-12">
+    <div class="pull-right">
+        @Html.ActionLink(" ", "List", null, new { @class = "glyphicon glyphicon-arrow-left", @title = "Volver" })
+        <a href="#" class="glyphicon glyphicon-floppy-disk" onclick="$('form#editJuego').submit()" title="Guardar"></a>
+
+    </div>
 </div>
+@if (this.@Model.EquipoGanador == 0)
+{  
+    <div class="col-xs-6">
+        @Html.ValidationSummary()
+
+        @using (Html.BeginForm("Edit", "Juego", FormMethod.Post, new { id = "editJuego" }))
+        {        
+            <dl>
+                <dt>@Html.DisplayNameFor(@Model => @Model.Fecha)</dt>
+                <dd>
+                    @Html.TextBoxFor(@Model => @Model.Fecha, new { @class = "datepicker" })
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(@Model => @Model.Lugar)</dt>
+                <dd>
+                    @Html.EditorFor(@Model => @Model.Lugar)
+                </dd>
+                @if (this.@Model.Id != 0)
+                {
+                    <dt>
+                        @Html.DisplayNameFor(@Model => @Model.Resultado)</dt>
+                    <dd>
+                        @Html.EditorFor(@Model => @Model.Resultado)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(@Model => @Model.EquipoGanador)</dt>
+                    <dd>
+                        @Html.DropDownListFor(m => m.EquipoGanador, new[] { new SelectListItem { Text = "Ninguno", Value = "0" }, new SelectListItem { Text = "Equipo Rojo", Value = "1" }, new SelectListItem { Text = "Equipo Blanco", Value = "2" }, new SelectListItem { Text = "Empate", Value = "3" } })
+                    </dd>
+                }
+            </dl>        
+        }
+    </div>
+}
+else
+{       
+    <h1>Galeria</h1>    
+    <div class="Message">
+        @TempData["valImage"]
+    </div>
+    <div class="col-xs-6">
+        @foreach (var g in this.@Model.Galerias)
+        {
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.ActionLink(" ", "Delete", "Galeria", new { idGaleria = g.Id, idJuego = g.IdJuego }, new { @class = "glyphicon glyphicon-remove-circle", title = "Eliminar" })
+                </div>
+                <div class="col-xs-6">
+                    <img width="100" height="100" src="@Url.Action("ObtenerImagen", "Juego", new { idJuego = g.IdJuego, idGaleria = g.Id })" />
+                </div>
+                <div class="col-xs-6">
+                    @g.Descripcion
+                </div>
+            </div>    
+            <div class="row">
+                <hr />
+            </div>              
+        }
+        <div class="row">
+            <h4>Imagen:</h4>
+            @using (Html.BeginForm("Add", "Galeria", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(@Model => @Model.Id)
+                <div class="col-xs-6">
+                    <dl>
+                        <dd>
+                            <input type="file" name="Image" />
+                        </dd>
+
+                    </dl>
+                </div>
+                <div>
+                    <dl>
+                        <dd>
+                            <textarea name="Descripcion"></textarea>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="pull-right">
+                    <a href="#" class="glyphicon  glyphicon-plus-sign" onclick="$(this).closest('form').submit()" title="Agregar"></a>
+                </div>
+            }
+        </div>
+    </div>
+    
+}
+

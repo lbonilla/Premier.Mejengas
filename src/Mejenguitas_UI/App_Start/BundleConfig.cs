@@ -9,7 +9,7 @@ namespace Mejenguitas_UI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js", "~/Scripts/bootstrap.js"));
+                        "~/Scripts/jquery-{version}.js", "~/Scripts/bootstrap.js", "~/Scripts/bootstrap-datepicker.js", "~/Scripts/Site.js"));
 
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
@@ -17,7 +17,7 @@ namespace Mejenguitas_UI
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css","~/Content/bootstrap-responsive.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css", "~/Content/bootstrap-responsive.css", "~/Content/bootstrap-datepicker.css", "~/Content/Site.css"));
         }
     }
 }

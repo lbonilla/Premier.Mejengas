@@ -14,33 +14,33 @@
             <h4>@juego.Lugar</h4>
         </div>
         <div class="col-xs-6">
-            <h4>@juego.Resultado</h4>
-            @if (juego.Estado == 2)
+            @if (juego.EquipoGanador != 0)
             {
-                switch (@juego.EquipoGanador)
-                {
-                    case 0: 
-                <h4>Empate</h4>
-                        break;
-                    case 1: 
-                <h4>Gana Equipo Rojo</h4>
-                        break;
-                    case 2: 
-                <h4>Gana Equipo Blanco</h4>
-                        break;
-                }
+                <h4>@juego.Resultado</h4>
+            }
+            @switch (@juego.EquipoGanador)
+            {
+                case 0:                     
+                    <h4>Juego Pendiente</h4>
+                    break;
+                case 1: 
+                    <h4>Gana Equipo Rojo</h4>
+                    break;
+                case 2: 
+                    <h4>Gana Equipo Blanco</h4>            
+                    break;
+                case 3: 
+                    <h4>Juego Empatado</h4>            
+                    break;
+            }
 
-            }
-            else
-            {                
-                <h4>Juego Pendiente</h4>
-            }
 
         </div>
+    </div>
+    <div class="row">
         <div class="col-xs-12">
             @Html.ActionLink(" ", "Edit", "Juego", new { juego.Id }, new { @class = "glyphicon glyphicon-pencil", title = "Editar" })
             @Html.ActionLink(" ", "Delete", "Juego", new { juego.Id }, new { @class = "glyphicon glyphicon-remove-circle", title = "Eliminar" })
-
         </div>
     </div>
     <hr />

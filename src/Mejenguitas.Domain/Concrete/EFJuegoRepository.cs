@@ -21,7 +21,7 @@ namespace Mejenguitas.Domain.Concrete
         {
             if (juego.Id == 0)
             {
-                juego.Fecha=juego.Fecha.ToUniversalTime();
+                juego.Fecha = juego.Fecha.ToUniversalTime();
                 context.Juegos.Add(juego);
             }
             else
@@ -32,21 +32,30 @@ namespace Mejenguitas.Domain.Concrete
                     dbEntry.Fecha = juego.Fecha;
                     dbEntry.Lugar = juego.Lugar;
                     dbEntry.Resultado = juego.Resultado;
-                    dbEntry.EquipoGanador = juego.EquipoGanador;                    
+                    dbEntry.EquipoGanador = juego.EquipoGanador;
                 }
             }
             context.SaveChanges();
-        } 
+        }
 
-        public bool Eliminar(int id){
+        public bool Eliminar(int id)
+        {
 
             bool result = false;
-            var juego=context.Juegos.Find(id);
+            var juego = context.Juegos.Find(id);
             if (juego != null)
             {
+                //Remove Childs
+                Galeria[] galArray= new Galeria[juego.Galerias.Count];
+                juego.Galerias.CopyTo(galArray,0);
+                foreach (var gal in galArray)
+                {
+                    context.Galerias.Remove(gal);
+                }
+                //Remove the games
                 context.Juegos.Remove(juego);
                 context.SaveChanges();
-                result = true;               
+                result = true;
             }
             return result;
         }

@@ -20,7 +20,7 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
         #region CRUD Methods
         public ViewResult List()
         {
-            return View(repository.Juegos);
+            return View(repository.Juegos.OrderByDescending(j=>j.Fecha));
         }
 
         public ActionResult Edit(int id)
@@ -32,21 +32,21 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
         [HttpPost]
         public ActionResult Edit(Juego juego)
         {
+            bool isNew = juego.Id == 0;
             if (ModelState.IsValid)
             {
                 repository.Guardar(juego);
                 TempData["message"] = string.Format("El partido para la fecha {0} fue salvado.", juego.Fecha);
-                return RedirectToAction("List");
+                if (isNew)
+                    return RedirectToAction("List");
             }
-            else
-            {
-                return View(juego);
-            }
+
+            return View(juego);
         }
 
         public ViewResult Create()
         {
-            return View("Edit", new Juego());
+            return View("Edit", new Juego() {  Fecha = DateTime.Now});
         }
 
         public ActionResult Delete(int id)
@@ -66,14 +66,12 @@ namespace Mejenguitas_UI.Areas.Administration.Controllers
         #endregion
 
         #region Others
-        public string GetJugadorGanador(int ganador) { 
-        
-            switch(ganador){
-                case 0: return "Juego pendiente";
-                case 1: return "Equipo Rojo";
-                case 2: return "Equipo Blanco";
-            }
-            return string.Empty;
+        public FileContentResult ObtenerImagen(int idJuego, int idGaleria)
+        {
+            Galeria g = repository.Juegos.FirstOrDefault(j => j.Id == idJuego).Galerias.FirstOrDefault(ga => ga.Id == idGaleria);
+            if (g != null && g.Objecto != null && g.MimeTypeObjeto != string.Empty)
+                return File(g.Objecto, g.MimeTypeObjeto);
+            return null;
         }
         #endregion
     }

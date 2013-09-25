@@ -3,8 +3,14 @@
     Layout = "~/Areas/Administration/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Jugador";    
 }
-<div class="row">
-    @using (Html.BeginForm("Edit", "Jugador", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<div class="col-xs-12">
+    <div class="pull-right">
+        @Html.ActionLink(" ", "List", null, new { @class = "glyphicon glyphicon-arrow-left", @title = "Volver" })
+        <a href="#" class="glyphicon glyphicon-floppy-disk" onclick="$('form#editJugador').submit()" title="Guardar"></a>
+    </div>
+</div>
+<div class="col-xs-12">
+    @using (Html.BeginForm("Edit", "Jugador", FormMethod.Post, new {id="editJugador", enctype = "multipart/form-data" }))
     {   
         @Html.ValidationSummary()    
         <dl class="dl-horizontal">
@@ -51,13 +57,7 @@
             <dd>
                 <input type="file" name="Image" />
             </dd>
-        </dl>
-        <p class="pull-right">
-            @Html.ActionLink(" ", "List", null, new { @class = "glyphicon glyphicon-arrow-left", @title = "Volver" })
-            
-            <a href="#"  class="glyphicon glyphicon-floppy-disk" onclick="$(this).closest('form').submit()" title="Guardar"> </a>
-        </p>        
+        </dl>     
     }
+
 </div>
-
-
