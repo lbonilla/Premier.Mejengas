@@ -2,13 +2,11 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-
 </head>
 <body>
     <div class="col-xs-12">
@@ -68,7 +66,7 @@
             @if (@Model.EstaInscrito != null && @Model.IdJugador != 0)
             {            
                 <div class="myPlayer">
-                    <img id="@Model.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @Model.IdJugador })" HEIGHT="60" WIDTH="60" BORDER="0" style="position:relative"/>
+                    <img id="@Model.IdJugador " src="@Url.Action("ObtenerImagen", new { idJugador = @Model.IdJugador })" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador" HEIGHT="60" WIDTH="60" BORDER="0" style="position:relative"/>
                 </div>
                 <div>
                     <div id="myInvitado1" class="invitado"></div>

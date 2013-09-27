@@ -23,7 +23,7 @@ namespace Mejenguitas_UI.Controllers
             jugadorRepository = jugadorRepo;
 
         }
-        public ActionResult Index(int idJuego = 0, int idJugador = 11)
+        public ActionResult Index(int idJuego = 0, int idJugador = 10)
         {
             Juego juegoActual = null;
             bool estaInscrito =false;
