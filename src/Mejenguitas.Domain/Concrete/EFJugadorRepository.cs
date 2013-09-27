@@ -38,6 +38,7 @@ namespace Mejenguitas.Domain.Concrete
                     dbEntry.Correo = jugador.Correo;
                     dbEntry.Nombre = jugador.Nombre;
                     dbEntry.Telefono = jugador.Telefono;
+                    dbEntry.Administrador = jugador.Administrador;
                 }
             }
             context.SaveChanges();

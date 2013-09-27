@@ -23,15 +23,16 @@ namespace Mejenguitas_UI.Controllers
             jugadorRepository = jugadorRepo;
 
         }
+
         public ActionResult Index(int idJuego = 0, int idJugador = 11)
         {
             Juego juegoActual = null;
-            bool estaInscrito =false;
-            
+            bool estaInscrito = false;
+            List<JuegoJugador> jugadoresInscritos = null;
             if (idJuego == 0)
             {
                 //Get the next game
-                juegoActual = juegoRepository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now && j.EquipoGanador != 0);
+                juegoActual = juegoRepository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now);
             }
             else
             {
@@ -40,13 +41,16 @@ namespace Mejenguitas_UI.Controllers
 
             if (idJugador != 0)
             {
-                estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == idJuego)==null?false:true;                
+                estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == idJuego) == null ? false : true;
             }
+
+            if (juegoActual != null)
+                jugadoresInscritos = juegoJugadorRepository.JuegosJugadores.Where(jj => jj.IdJuego == juegoActual.Id).ToList();
 
             return View(new JuegoJugadorViewModel
             {
                 Juego = juegoActual,
-                JugadoresInscritos = juegoJugadorRepository.JuegosJugadores.Where(jj => jj.IdJuego == juegoActual.Id).ToList(),
+                JugadoresInscritos = jugadoresInscritos,
                 EstaInscrito = estaInscrito,
                 IdJugador = idJugador
             });

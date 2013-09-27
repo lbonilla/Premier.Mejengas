@@ -57,6 +57,12 @@
             <dd>
                 <input type="file" name="Image" />
             </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Administrador)
+            </dt>
+            <dd>
+                @Html.CheckBoxFor(model => model.Administrador)
+            </dd>
         </dl>     
     }
 
