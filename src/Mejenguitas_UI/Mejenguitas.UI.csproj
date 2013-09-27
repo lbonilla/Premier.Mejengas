@@ -140,6 +140,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\GaleriaController.cs" />
+    <Compile Include="Controllers\ComentarioController.cs" />
+    <Compile Include="Controllers\GaleriaController.cs" />
+    <Compile Include="Controllers\JuegoController.cs" />
+    <Compile Include="Controllers\JugadorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Areas\Administration\Controllers\JuegoController.cs" />
     <Compile Include="Areas\Administration\Controllers\JugadorController.cs" />
@@ -163,6 +167,8 @@
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\fonts\flexslider-icon.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
@@ -231,12 +237,24 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Images\maldini.jpg" />
+    <Content Include="Images\messi.jpg" />
+    <Content Include="Images\neymar.jpg" />
+    <Content Include="Images\ronald.jpg" />
+    <Content Include="Images\ronaldinho.jpg" />
+    <Content Include="Images\ronaldo.jpg" />
+    <Content Include="Images\ruiz.jpg" />
+    <Content Include="Images\zidane.jpg" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administration\Views\Shared\_AdminTopMenu.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\Galeria.cshtml" />
-    <Content Include="Views\Login\LoginAdmin.cshtml" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Content\fonts\flexslider-icon.eot" />
+    <Content Include="Content\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\fonts\flexslider-icon.woff" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -310,6 +328,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Mejengas\Index.cshtml" />
+    <Content Include="Views\Galeria\List.cshtml" />
+    <Content Include="Views\Juego\List.cshtml" />
+    <Content Include="Views\Comentario\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

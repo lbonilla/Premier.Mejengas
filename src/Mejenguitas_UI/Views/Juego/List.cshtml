@@ -1,0 +1,57 @@
+﻿@model IQueryable<Mejenguitas.Domain.Entities.Juego>
+
+@{
+    Layout = null;
+}
+
+<h4>Juegos</h4>
+<hr />
+
+@if (@Model.Count() > 0)
+{
+    foreach (var juego in @Model)
+    {
+    <div class="row">
+        <div class="col-xs-12">
+            <a href='@Url.Action("Index", "Mejengas", new { idJuego = juego.Id })' style="text-decoration:none">
+                <p>
+                    @juego.Fecha.ToString()
+                </p>    
+                <p>
+                    @juego.Lugar
+                </p>                
+                <p>
+                    @switch (@juego.EquipoGanador)
+                    {
+                        case 0:                     
+                            @:Juego Pendiente
+                            break;
+                        case 1: 
+                            @:Gana Equipo Rojo
+                            break;
+                        case 2: 
+                            @:Gana Equipo Blanco            
+                            break;
+                        case 3: 
+                            @:Juego Empatado           
+                            break;
+                    }
+                </p>
+                @if (juego.EquipoGanador != 0)
+                {
+                    <p>
+                        @juego.Resultado
+                    </p>
+                }
+            </a>
+        </div>
+    </div>
+    <hr />
+    }    
+}
+else
+{
+    <div class="cl-xs-12">
+        No hay Juegos registrados
+    </div>
+}

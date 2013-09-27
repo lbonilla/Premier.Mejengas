@@ -36,5 +36,8 @@ namespace Mejenguitas.Domain.Entities
 
         [HiddenInput(DisplayValue = false)]
         public virtual ICollection<Galeria> Galerias { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public virtual ICollection<Comentario> Comentarios { get; set; }
     }
 }

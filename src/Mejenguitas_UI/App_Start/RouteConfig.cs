@@ -15,7 +15,8 @@ namespace Mejenguitas_UI
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new {controller = "Mejengas", action = "Index"}
+                defaults: new {controller = "Mejengas", action = "Index"},
+                namespaces: new[] { "Mejenguitas_UI.Controllers" }
             );
         }
     }

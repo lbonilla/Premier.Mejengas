@@ -12,5 +12,6 @@ namespace Mejenguitas.Domain.Abstract
         IQueryable<Jugador> Jugadores { get; }
         void Guardar(Jugador jugador);
         bool Eliminar(int id);
+        Jugador Autenticar(string correo, string contrasenna);
     }
 }

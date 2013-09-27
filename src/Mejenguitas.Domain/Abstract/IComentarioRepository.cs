@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Mejenguitas.Domain.Entities;
 
-namespace Mejenguitas_UI.Infrastructure.Abstract
+namespace Mejenguitas.Domain.Abstract
 {
-    public interface IAuthProvider
+    public interface IComentarioRepository
     {
-        Jugador Authenticate(string username, string password);
-        void LogOut();
+        void Guardar(Comentario comentario);
     }
 }

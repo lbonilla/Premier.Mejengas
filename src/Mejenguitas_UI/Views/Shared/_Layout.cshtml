@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <!-- Le styles -->
-    @Styles.Render( "~/Content/css")
-    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet">    
-    
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet">
+
     <style>
         body
         {
-            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            padding-top: 30px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
     </style>
 </head>
@@ -19,30 +19,49 @@
     <div class="container ">
         <div class="row page-header">
             <div class="col-xs-9 ">
-                
+                @{Html.RenderAction("List", "Galeria");}
             </div>
             <div class="col-xs-3">
-                @Html.ActionLink("Admin","List",new{area="Administration",controller="Juego"})
-                Login
-
+                <div class="row">
+                    <div class="pull-right">
+                        @if (Request.IsAuthenticated)
+                        {                                                     
+                            @Html.ActionLink("Logout", "LogOut", new { controller = "Login" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Login", "LoginJugador", new { controller = "Login" })
+                        }
+                        @Html.ActionLink("Admin", "List", new { area = "Administration", controller = "Juego" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="pull-right">
+                        @if (@Session["nombreJugador"] != null)
+                        { 
+                            <p>
+                                <b>Bienvenido @Session["nombreJugador"]</b>
+                            </p>                                                  
+                        }
+                        @if (@Session["idJugador"] != null)
+                        { 
+                            <p class="pull-right">
+                                <img width="100" height="100" src="@Url.Action("ObtenerImagen", "Jugador", new { idJugador = @Session["idJugador"] })"/>
+                            </p>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
-     
-            <div class="col-xs-2" style="background-color:yellow">
-              
+            <div class="col-xs-2">
+                @{Html.RenderAction("List", "Juego");}
             </div>
-            <div class="col-xs-7" >
-                @if (TempData["message"] != null) {
-                    <div class="Message">
-                        @TempData["message"]
-                    </div>                    
-                }
-                @RenderBody()                
-
+            <div class="col-xs-7">
+                @RenderBody()
             </div>
-            <div class="col-xs-3" style="background-color:black">
-              
+            <div class="col-xs-3">
+                @{Html.RenderAction("List", "Comentario");}
             </div>
         </div>
     </div>

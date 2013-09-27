@@ -13,20 +13,20 @@
     <link href="~/Content/Site.css" rel="stylesheet">
 </head>
 <body>
-    <h4>Por favor inicie sesión para acceder al area de Administración</h4>
+    <h4>Inicie sesión</h4>
 
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary()
         <p>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayNameFor(model => model.Correo)
             <br />
-            @Html.EditorFor(model => model.UserName)
+            @Html.EditorFor(model => model.Correo)
         </p>
         <p>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.DisplayNameFor(model => model.Contrasenna)
             <br />
-            @Html.EditorFor(model => model.Password)
+            @Html.EditorFor(model => model.Contrasenna)
         </p>
         <p>
             <input type="submit" value="Iniciar Sesión" />
