@@ -5,32 +5,61 @@ using System.Web;
 using System.Web.Mvc;
 using Mejenguitas.Domain.Abstract;
 using Mejenguitas.Domain.Entities;
+using Mejenguitas_UI.Models;
 
 namespace Mejenguitas_UI.Controllers
 {
     public class MejengasController : Controller
     {
         private IJuegoRepository juegoRepository;
+        private IJuegoJugadorRepository juegoJugadorRepository;
+        private IJugadorRepository jugadorRepository;
         //
         // GET: /Mejengas/
-        public MejengasController(IJuegoRepository juegoRepo) {
-            juegoRepository = juegoRepo;
-        }
-        public ActionResult Index(int idJuego =0)
+        public MejengasController(IJuegoRepository juegoRepo, IJugadorRepository jugadorRepo, IJuegoJugadorRepository juegoJugadorRepo)
         {
-            Juego juegoActual=null;
+            juegoRepository = juegoRepo;
+            juegoJugadorRepository = juegoJugadorRepo;
+            jugadorRepository = jugadorRepo;
+
+        }
+        public ActionResult Index(int idJuego = 0, int idJugador = 11)
+        {
+            Juego juegoActual = null;
+            bool estaInscrito =false;
+            
             if (idJuego == 0)
             {
                 //Get the next game
-                 juegoActual=  juegoRepository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now && j.EquipoGanador != 0);
+                juegoActual = juegoRepository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now && j.EquipoGanador != 0);
             }
             else
             {
-                juegoActual = juegoRepository.Juegos.FirstOrDefault(j => j.Id== idJuego);
+                juegoActual = juegoRepository.Juegos.FirstOrDefault(j => j.Id == idJuego);
             }
-            return View(juegoActual);
-        }
-        
 
+            if (idJugador != 0)
+            {
+                estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == idJuego)==null?false:true;                
+            }
+
+            return View(new JuegoJugadorViewModel
+            {
+                Juego = juegoActual,
+                JugadoresInscritos = juegoJugadorRepository.JuegosJugadores.Where(jj => jj.IdJuego == juegoActual.Id).ToList(),
+                EstaInscrito = estaInscrito,
+                IdJugador = idJugador
+            });
+        }
+
+        #region Others
+        public FileContentResult ObtenerImagen(int idJugador)
+        {
+            Jugador g = jugadorRepository.Jugadores.FirstOrDefault(j => j.Id == idJugador); ;
+            if (g != null && g.Avatar != null && g.AvatarMimeType != string.Empty)
+                return File(g.Avatar, g.AvatarMimeType);
+            return null;
+        }
+        #endregion
     }
 }

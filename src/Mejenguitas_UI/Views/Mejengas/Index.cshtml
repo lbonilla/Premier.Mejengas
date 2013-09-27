@@ -1,19 +1,82 @@
-﻿@{
+﻿@model Mejenguitas_UI.Models.JuegoJugadorViewModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>    
+    <title>Index</title>
+
 </head>
 <body>
-    <div class="col-xs-1">
-        <canvas id="fieldCanvas" width="600" height="350"></canvas>
+    <div class="col-xs-12">
+        <div id="divfield">
+            <img id="imgField" src="~/Content/images/schematic-green-soccer-field.jpg" />
+        </div>
+        @foreach (var j in @Model.JugadoresInscritos)
+        {            
+            <div class="player">
+                <img id="@j.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @j.IdJugador })" data-Equipo="@j.Equipo" data-Numero="@j.Numero" data-Puesto="@j.Puesto" HEIGHT="60" WIDTH="60" BORDER="0" />
+            </div>                 
+        }
+        <div class="disponible" id="1P">
+            <div class="contentData" data-equipo="1" data-puesto="P">
+            </div>
+        </div>
+        <div class="disponible" id="1DF1">
+            <div class="contentData" data-equipo="1" data-puesto="DF1">
+            </div>
+        </div>
+        <div class="disponible" id="1DF2">
+            <div class="contentData" data-equipo="1" data-puesto="DF2">
+            </div>
+        </div>
+        <div class="disponible" id="1D1">
+            <div class="contentData" data-equipo="1" data-puesto="D1">
+            </div>
+        </div>
+        <div class="disponible" id="1D2">
+            <div class="contentData" data-equipo="1" data-puesto="D2">
+            </div>
+        </div>
+        <div class="disponible" id="2P">
+            <div class="contentData" data-equipo="2" data-puesto="P">
+            </div>
+        </div>
+        <div class="disponible" id="2DF1">
+            <div class="contentData" data-equipo="2" data-puesto="DF1">
+            </div>
+        </div>
+        <div class="disponible" id="2DF2">
+            <div class="contentData" data-equipo="2" data-puesto="DF2">
+            </div>
+        </div>
+        <div class="disponible" id="2D1">
+            <div class="contentData" data-equipo="2" data-puesto="D1">
+            </div>
+        </div>
+        <div class="disponible" id="2D2">
+            <div class="contentData" data-equipo="2" data-puesto="D2">
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <div class="jugadoresDisponibles">
+
+            @if (@Model.EstaInscrito != null && @Model.IdJugador != 0)
+            {            
+                <div class="myPlayer">
+                    <img id="@Model.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @Model.IdJugador })" HEIGHT="60" WIDTH="60" BORDER="0" style="position:relative"/>
+                </div>
+                <div id="myInvitado1" class="invitado"></div>
+                <div id="myInvitado2"  class="invitado"></div>
+                <div id="myInvitado3"  class="invitado"></div>
+                <div id="myInvitado4"  class="invitado"></div>
+            }
+        </div>
+
     </div>
 </body>
-
 </html>
-

@@ -1,0 +1,56 @@
+﻿@model Mejenguitas.Domain.Entities.Juego
+
+@{
+    Layout = null;
+}
+
+<h4>Comentarios</h4>
+<hr />
+
+@if (@Model.Comentarios.Count() > 0)
+{
+    <div class="cl-xs-12">
+        @foreach (var comentario in @Model.Comentarios)
+        { 
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        @comentario.Texto
+                    </p>
+                    <p>
+                        @comentario.Fecha.ToString()
+                    </p>
+                </div>
+            </div>
+            <hr />            
+        }
+    </div>    
+}
+else
+{
+    <div class="cl-xs-12">
+        No hay comentarios registrados
+    </div>
+    <hr />
+}
+<div class="row">
+    @if (!Request.IsAuthenticated)
+    {
+        <div class="pull-right">
+            @Html.ActionLink(" ", "LoginJugador", "Login", null, new { @class = "glyphicon glyphicon-plus-sign", @title = "Agregar" })
+        </div>
+    }
+    else
+    {
+        using (Html.BeginForm("Add", "Comentario", FormMethod.Post))
+        {
+        @Html.Hidden("idJuego", @Model.Id)
+        <div class="col-xs-10">
+            <textarea name="Texto"></textarea>
+        </div>
+        <div class="col-xs-2">
+            <a href="#" class="glyphicon glyphicon-floppy-disk" onclick="$(this).closest('form').submit()" title="Guardar"></a>
+        </div>       
+        }
+    }
+</div>

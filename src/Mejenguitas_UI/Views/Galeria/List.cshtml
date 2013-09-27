@@ -1,0 +1,55 @@
+﻿@model HashSet<Mejenguitas.Domain.Entities.Galeria>
+
+@{
+    Layout = null;
+}
+
+@if (@Model.Count() > 0)
+{
+    <div class="cl-xs-12">
+        <div class="flexslider">
+            <ul class="slides">
+                @foreach (var galeria in @Model)
+                {
+                    <li>
+                        <img src="@Url.Action("ObtenerImagen", "Galeria", new { idJuego = galeria.IdJuego, idGaleria = galeria.Id })" />
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+else
+{
+    <div class="cl-xs-12">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <img src="~/Images/messi.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/neymar.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/ruiz.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/ronaldinho.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/ronaldo.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/zidane.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/ronald.jpg" />
+                </li>
+                <li>
+                    <img src="~/Images/maldini.jpg" />
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+}

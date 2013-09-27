@@ -55,5 +55,12 @@ namespace Mejenguitas.Domain.Concrete
             }
             return result;
         }
+
+        public Jugador Autenticar(string correo, string contrasenna) 
+        {
+            Jugador jugador = null;
+            jugador = context.Jugadores.FirstOrDefault(j=>j.Correo == correo && j.Contrasenna == contrasenna);
+            return jugador;
+        }
     }
 }

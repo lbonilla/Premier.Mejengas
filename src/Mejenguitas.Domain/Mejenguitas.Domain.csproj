@@ -44,11 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IComentarioRepository.cs" />
     <Compile Include="Abstract\IGaleriaRepository.cs" />
+    <Compile Include="Abstract\IJuegoJugadorRepository.cs" />
     <Compile Include="Abstract\IJuegoRepository.cs" />
     <Compile Include="Abstract\IJugadorRepository.cs" />
+    <Compile Include="Concrete\EFComentarioRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFGaleriaRepository.cs" />
+    <Compile Include="Concrete\EFJuegoJugadorRepository.cs" />
     <Compile Include="Concrete\EFJuegoRepository.cs" />
     <Compile Include="Concrete\EFJugadorRepository.cs" />
     <Compile Include="Entities\Comentario.cs" />

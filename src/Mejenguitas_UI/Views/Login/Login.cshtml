@@ -1,0 +1,36 @@
+﻿@model Mejenguitas_UI.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio de Sesión</title>
+    <link href="~/Content/Site.css" rel="stylesheet">
+</head>
+<body>
+    <h4>Inicie sesión</h4>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>
+            @Html.DisplayNameFor(model => model.Correo)
+            <br />
+            @Html.EditorFor(model => model.Correo)
+        </p>
+        <p>
+            @Html.DisplayNameFor(model => model.Contrasenna)
+            <br />
+            @Html.EditorFor(model => model.Contrasenna)
+        </p>
+        <p>
+            <input type="submit" value="Iniciar Sesión" />
+        </p>
+    }
+</body>
+</html>

@@ -23,6 +23,11 @@ namespace Mejenguitas.Domain.Concrete
                         .HasRequired(g => g.Juego)
                         .WithMany(j => j.Galerias)
                         .HasForeignKey(g => g.IdJuego);
+                        
+            modelBuilder.Entity<Comentario>()
+                        .HasRequired(c => c.Juego)
+                        .WithMany(j => j.Comentarios)
+                        .HasForeignKey(c => c.IdJuego);
         }
     }
 }
