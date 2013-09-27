@@ -9,9 +9,8 @@
     <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        body
-        {
-            padding-top: 30px; /* 60px to make the container go all the way to the bottom of the topbar */
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
         }
     </style>
 </head>
@@ -54,18 +53,29 @@
             </div>
         </div>
         <div class="row">
+            <div style="height:588px; width:940px">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-2">
                 @{Html.RenderAction("List", "Juego");}
             </div>
             <div class="col-xs-7">
-                @RenderBody()
+                List of names by 
             </div>
             <div class="col-xs-3">
                 @{Html.RenderAction("List", "Comentario");}
             </div>
         </div>
     </div>
+
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Site")
+
     @RenderSection("scripts", required: false)
 </body>
 

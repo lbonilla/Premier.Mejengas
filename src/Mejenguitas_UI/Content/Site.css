@@ -1,76 +1,90 @@
-﻿/*body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
-}
-
-header, footer, nav, section {
-    display: block;
-}
-
-fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
-}
-
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-textarea {
-    min-height: 75px;
-}
-
-.editor-label {
-    margin: 1em 0 0 0;
-}
-
-.editor-field {
-    margin: 0.5em 0 0 0;
-}
-
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
-{
+﻿
+.field-validation-error {
     color: #f00;
 }
 
-.field-validation-valid
-{
+.field-validation-valid {
     display: none;
 }
 
-.input-validation-error
-{
+.input-validation-error {
     border: 1px solid #f00;
     background-color: #fee;
 }
 
-.validation-summary-errors
-{
+.validation-summary-errors {
     font-weight: bold;
     color: #f00;
 }
 
-.validation-summary-valid
-{
+.validation-summary-valid {
     display: none;
 }
 
-.dl-horizontal dd
-{
-    margin-bottom:15px;    
+.dl-horizontal dd {
+    margin-bottom: 15px;
 }
 
-.Message
-{
+.Message {
     color: green;
     margin-bottom: 25px;
+}
+
+/*Mejengas style*/
+.player {
+    position: fixed;
+    height: 100px;
+    width: 100px;
+}
+
+.disponible {
+    position: relative;
+    height: 60px;
+    width: 60px;
+}
+
+.myPlayer {
+    position: relative;
+}
+
+.invitado {
+    background-color: transparent;
+    background-image: url('images/Invitado2.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: 100%;
+    width: 60px;
+    height: 60px;
+}
+
+.jugadoresDisponibles {
+    height: 70px;
+    width: 300px;
+    border-color: black;
+    border: 5px solid black;
+}
+
+.contentData {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-color: black;
+    border: 5px solid black;
+}
+
+#imgField {
+    max-width: 100%;
+    height: auto;
+}
+
+#divField {
+    width: 120px;
+    min-height: 120px;
+    max-width: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
 }
 
 .flexslider .slides img

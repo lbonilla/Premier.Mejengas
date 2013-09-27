@@ -29,12 +29,14 @@ namespace Mejenguitas_UI.Infrastructure
             return kernel.GetAll(serviceType);
         }
         private void AddBindings()
-        {            
+        {
             kernel.Bind<IJuegoRepository>().To<EFJuegoRepository>();
             kernel.Bind<IJugadorRepository>().To<EFJugadorRepository>();
             kernel.Bind<IGaleriaRepository>().To<EFGaleriaRepository>();
+            kernel.Bind<IJuegoJugadorRepository>().To<EFJuegoJugadorRepository>();
             kernel.Bind<IComentarioRepository>().To<EFComentarioRepository>();
             kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+
         }
     }
 }
