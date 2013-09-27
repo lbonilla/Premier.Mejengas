@@ -149,6 +149,10 @@
     <Compile Include="Controllers\GaleriaController.cs" />
     <Compile Include="Controllers\JuegoController.cs" />
     <Compile Include="Controllers\JugadorController.cs" />
+    <Compile Include="Controllers\ComentarioController.cs" />
+    <Compile Include="Controllers\GaleriaController.cs" />
+    <Compile Include="Controllers\JuegoController.cs" />
+    <Compile Include="Controllers\JugadorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Areas\Administration\Controllers\JuegoController.cs" />
     <Compile Include="Areas\Administration\Controllers\JugadorController.cs" />
@@ -270,6 +274,11 @@
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
     <Content Include="Views\Login\LoginAdmin.cshtml" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Content\fonts\flexslider-icon.eot" />
+    <Content Include="Content\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\fonts\flexslider-icon.woff" />
     <Content Include="Scripts\jquery.flexslider.js" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Content\fonts\flexslider-icon.eot" />
