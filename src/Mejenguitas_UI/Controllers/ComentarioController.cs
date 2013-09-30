@@ -38,6 +38,13 @@ namespace Mejenguitas_UI.Controllers
             {
                 Comentario nuevoComentario = new Comentario();
                 nuevoComentario.IdJuego = idJuego;
+                
+                int idJugador = 0;
+                if (Session["idJugador"] != null)
+                    idJugador = Int32.Parse(Session["idJugador"].ToString());
+
+                nuevoComentario.IdJugador = idJugador;
+                nuevoComentario.IdJuego = idJuego;
                 nuevoComentario.Fecha = DateTime.Now;
                 nuevoComentario.Texto = texto;
 

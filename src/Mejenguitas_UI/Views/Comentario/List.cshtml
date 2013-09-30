@@ -7,13 +7,16 @@
 <h4>Comentarios</h4>
 <hr />
 
-@if (@Model.Comentarios.Count() > 0)
+@if (@Model != null && @Model.Comentarios.Count() > 0)
 {
     <div class="cl-xs-12">
         @foreach (var comentario in @Model.Comentarios)
         { 
             <div class="row">
                 <div class="col-xs-12">
+                    <p>
+                        <img width="50" height="50" src="@Url.Action("ObtenerImagen", "Jugador", new { idJugador = @comentario.IdJugador })"/>
+                    </p>
                     <p>
                         @comentario.Texto
                     </p>
@@ -33,24 +36,27 @@ else
     </div>
     <hr />
 }
-<div class="row">
-    @if (!Request.IsAuthenticated)
-    {
-        <div class="pull-right">
-            @Html.ActionLink(" ", "LoginJugador", "Login", null, new { @class = "glyphicon glyphicon-plus-sign", @title = "Agregar" })
-        </div>
-    }
-    else
-    {
-        using (Html.BeginForm("Add", "Comentario", FormMethod.Post))
+@if (Model != null)
+{
+    <div class="row">
+        @if (!Request.IsAuthenticated)
         {
-        @Html.Hidden("idJuego", @Model.Id)
-        <div class="col-xs-10">
-            <textarea name="Texto"></textarea>
-        </div>
-        <div class="col-xs-2">
-            <a href="#" class="glyphicon glyphicon-floppy-disk" onclick="$(this).closest('form').submit()" title="Guardar"></a>
-        </div>       
+            <div class="pull-right">
+                @Html.ActionLink(" ", "LoginJugador", "Login", null, new { @class = "glyphicon glyphicon-plus-sign", @title = "Agregar" })
+            </div>
         }
-    }
-</div>
+        else
+        {
+            using (Html.BeginForm("Add", "Comentario", FormMethod.Post))
+            {
+            @Html.Hidden("idJuego", @Model.Id)
+            <div class="col-xs-10">
+                <textarea name="Texto"></textarea>
+            </div>
+            <div class="col-xs-2">
+                <a href="#" class="glyphicon glyphicon-floppy-disk" onclick="$(this).closest('form').submit()" title="Guardar"></a>
+            </div>       
+            }
+        }
+    </div>
+}

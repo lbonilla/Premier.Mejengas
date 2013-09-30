@@ -12,20 +12,25 @@ namespace Mejenguitas_UI.Controllers
     {
         IJuegoRepository repository;
 
-        public GaleriaController (IJuegoRepository repo)
+        public GaleriaController(IJuegoRepository repo)
         {
             repository = repo;
         }
 
         public ActionResult List(int idJuego = 0)
         {
+            Juego juego = null;
             if (idJuego == 0)
             {
-                return View(repository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now ).Galerias);
+                juego = repository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now);
+                if (juego != null)
+                    return View(juego.Galerias);
+                else
+                    return View(new HashSet<Galeria>());
             }
-            else 
+            else
             {
-                return View(repository.Juegos.FirstOrDefault(j => j.Id == idJuego).Galerias);  
+                return View(repository.Juegos.FirstOrDefault(j => j.Id == idJuego).Galerias);
             }
         }
 

@@ -32,7 +32,7 @@ namespace Mejenguitas_UI.Controllers
 
             Juego juegoActual = null;
             bool estaInscrito = false;
-            List<JuegoJugador> jugadoresInscritos = null;
+            List<JuegoJugador> jugadoresInscritos = new List<JuegoJugador>();
             if (idJuego == 0)
             {
                 //Get the next game
@@ -43,14 +43,16 @@ namespace Mejenguitas_UI.Controllers
                 juegoActual = juegoRepository.Juegos.FirstOrDefault(j => j.Id == idJuego);
             }
 
-            if (idJugador != 0)
-            {
-                estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id) == null ? false : true;
-            }
-
             if (juegoActual != null)
-                jugadoresInscritos = juegoJugadorRepository.JuegosJugadores.Where(jj => jj.IdJuego == juegoActual.Id).ToList();
+            {
+                if (idJugador != 0)
+                {
+                    estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id) == null ? false : true;
+                }
 
+                if (juegoActual != null)
+                    jugadoresInscritos = juegoJugadorRepository.JuegosJugadores.Where(jj => jj.IdJuego == juegoActual.Id).ToList();
+            }
             return View(new JuegoJugadorViewModel
             {
                 Juego = juegoActual,

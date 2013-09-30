@@ -18,26 +18,29 @@ create table Galeria(
 	REFERENCES Juego(Id)
 );
 
-create table Comentario(
-	Id int identity Primary Key,
-	IdJuego int,
-	Fecha DateTime,
-	Texto varchar(100),
-	CONSTRAINT FK_Comentario_Juego FOREIGN KEY(IdJuego)
-	REFERENCES Juego(Id)
-);
-
 create table Jugador(
 	Id int identity Primary Key,
 	Nombre varchar(50),
 	NickName varchar(50),
-	Avatar varbinary,
+	Avatar varbinary(MAX),
 	AvatarMimeType varchar(50),
 	Correo varchar(100),
 	Contrasenna varchar(200),
 	Telefono varchar(30),
 	Administrador  BIT DEFAULT 0
-)
+);
+
+create table Comentario(
+	Id int identity Primary Key,
+	IdJuego int,
+	IdJugador int,
+	Fecha DateTime,
+	Texto varchar(100),
+	CONSTRAINT FK_Comentario_Juego FOREIGN KEY(IdJuego)
+	REFERENCES Juego(Id),
+	CONSTRAINT FK_Comentario_Jugador FOREIGN KEY(IdJugador)
+	REFERENCES Jugador(Id)
+);
 
 create table JuegoJugador(
 	Id int identity Primary Key,
@@ -52,7 +55,7 @@ create table JuegoJugador(
 	REFERENCES Juego(Id),
 	CONSTRAINT FK_JuegoJugador_Jugador FOREIGN KEY(IdJugador)
 	REFERENCES Jugador(Id)
-)
+);
 
 
 

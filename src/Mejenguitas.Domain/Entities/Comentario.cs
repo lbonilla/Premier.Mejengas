@@ -10,9 +10,10 @@ namespace Mejenguitas.Domain.Entities
     {
         public int Id { get; set; }
         public int IdJuego { get; set; }
+        public int IdJugador { get; set; }
         public DateTime Fecha { get; set; }
         public string Texto { get; set; }
 
-        public virtual Juego Juego { get; set; }
+        public virtual Juego Juego { get; set; }        
     }
 }

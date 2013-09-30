@@ -158,6 +158,8 @@
     <Compile Include="Infrastructure\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectDependecyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Images\camisaBlanca.PNG" />
+    <Content Include="Images\camisaRoja.PNG" />
     <Content Include="Scripts\Mejengas.js" />
   </ItemGroup>
   <ItemGroup>
@@ -266,19 +268,16 @@
     <Content Include="Areas\Administration\Views\Shared\Galeria.cshtml" />
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
-    <Content Include="Views\Login\LoginAdmin.cshtml" />
     <Content Include="Scripts\jquery.flexslider.js" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Content\fonts\flexslider-icon.eot" />
     <Content Include="Content\fonts\flexslider-icon.ttf" />
     <Content Include="Content\fonts\flexslider-icon.woff" />
     <Content Include="Scripts\jquery.flexslider.js" />
-    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Content\fonts\flexslider-icon.eot" />
     <Content Include="Content\fonts\flexslider-icon.ttf" />
     <Content Include="Content\fonts\flexslider-icon.woff" />
     <Content Include="Scripts\jquery.flexslider.js" />
-    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Content\fonts\flexslider-icon.eot" />
     <Content Include="Content\fonts\flexslider-icon.ttf" />
     <Content Include="Content\fonts\flexslider-icon.woff" />
