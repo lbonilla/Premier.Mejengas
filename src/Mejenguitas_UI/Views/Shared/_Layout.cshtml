@@ -62,7 +62,6 @@
                 @{Html.RenderAction("List", "Juego");}
             </div>
             <div class="col-xs-7">
-                List of names by 
             </div>
             <div class="col-xs-3">
                 @{Html.RenderAction("List", "Comentario");}
@@ -75,8 +74,10 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/Site")
-
+    @Scripts.Render("~/Scripts/Mejengas.js")
     @RenderSection("scripts", required: false)
+    
+
 </body>
 
 </html>

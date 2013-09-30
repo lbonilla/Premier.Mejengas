@@ -32,13 +32,13 @@
 
 /*Mejengas style*/
 .player {
-    position: fixed;
+    position: absolute;
     height: 100px;
     width: 100px;
 }
 
 .disponible {
-    position: relative;
+    position: absolute;
     height: 60px;
     width: 60px;
 }
@@ -69,7 +69,7 @@
 }
 
 .contentData {
-    position: relative;
+    position: absolute;
     height: 60px;
     width: 60px;
     border-color: black;

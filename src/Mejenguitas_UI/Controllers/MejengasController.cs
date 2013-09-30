@@ -24,8 +24,12 @@ namespace Mejenguitas_UI.Controllers
 
         }
 
-        public ActionResult Index(int idJuego = 0, int idJugador = 11)
+        public ActionResult Index(int idJuego = 0)
         {
+            int idJugador = 0;
+            if (Session["idJugador"] != null)
+                idJugador = Int32.Parse(Session["idJugador"].ToString());
+
             Juego juegoActual = null;
             bool estaInscrito = false;
             List<JuegoJugador> jugadoresInscritos = null;
@@ -41,7 +45,7 @@ namespace Mejenguitas_UI.Controllers
 
             if (idJugador != 0)
             {
-                estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == idJuego) == null ? false : true;
+                estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id) == null ? false : true;
             }
 
             if (juegoActual != null)
