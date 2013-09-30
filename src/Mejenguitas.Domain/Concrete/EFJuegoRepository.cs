@@ -46,11 +46,17 @@ namespace Mejenguitas.Domain.Concrete
             if (juego != null)
             {
                 //Remove Childs
-                Galeria[] galArray= new Galeria[juego.Galerias.Count];
-                juego.Galerias.CopyTo(galArray,0);
+                Galeria[] galArray = new Galeria[juego.Galerias.Count];
+                juego.Galerias.CopyTo(galArray, 0);
                 foreach (var gal in galArray)
                 {
                     context.Galerias.Remove(gal);
+                }
+                Comentario[] comArray = new Comentario[juego.Comentarios.Count];
+                juego.Comentarios.CopyTo(comArray, 0);
+                foreach (var com in comArray)
+                {
+                    context.Comentarios.Remove(com);
                 }
                 //Remove the games
                 context.Juegos.Remove(juego);

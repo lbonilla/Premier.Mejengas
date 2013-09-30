@@ -21,7 +21,7 @@ namespace Mejenguitas_UI.Controllers
         {
             if (idJuego == 0)
             {
-                return View(repository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now && j.EquipoGanador != 0).Galerias);
+                return View(repository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now ).Galerias);
             }
             else 
             {

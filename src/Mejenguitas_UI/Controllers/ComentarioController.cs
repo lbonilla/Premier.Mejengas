@@ -23,7 +23,7 @@ namespace Mejenguitas_UI.Controllers
         {
             if (idJuego == 0)
             {
-                return View(juegoRepository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now && j.EquipoGanador != 0));
+                return View(juegoRepository.Juegos.FirstOrDefault(j => j.Fecha >= DateTime.Now ));
             }
             else
             {

@@ -35,7 +35,8 @@ create table Jugador(
 	AvatarMimeType varchar(50),
 	Correo varchar(100),
 	Contrasenna varchar(200),
-	Telefono varchar(30)	
+	Telefono varchar(30),
+	Administrador  BIT DEFAULT 0
 )
 
 create table JuegoJugador(

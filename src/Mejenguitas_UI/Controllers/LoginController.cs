@@ -25,13 +25,22 @@ namespace Mejenguitas_UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(LoginViewModel model, string returnUrl, bool admin = false)
         {
             if (ModelState.IsValid)
             {
                 Jugador jugador = authProvider.Authenticate(model.Correo, model.Contrasenna);
                 if (jugador != null)
-                {
+                {                    
+                    if (admin.Equals(true))
+                    {
+                        if (jugador.Administrador.Equals(false))
+                        {
+                            ModelState.AddModelError("", "No tiene acceso al area de administración");
+                            return View();   
+                        }
+                    }                    
+
                     Session["idJugador"] = jugador.Id;
                     Session["nombreJugador"] = jugador.Nombre;                    
                     return Redirect(returnUrl ?? Url.Action("Index", "Mejengas"));

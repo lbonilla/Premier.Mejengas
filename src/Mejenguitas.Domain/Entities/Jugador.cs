@@ -41,5 +41,8 @@ namespace Mejenguitas.Domain.Entities
 
         [Display(Name = "Teléfono:")]
         public string Telefono { get; set; }
+
+        [Display(Name = "Es Administrador:")]        
+        public bool Administrador { get; set; }        
     }
 }
