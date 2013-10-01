@@ -16,9 +16,9 @@ namespace Mejenguitas_UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Subscribir(int idJuego, int idJugador, int equipo, string puesto)
+        public ActionResult Subscribir(int idJuego, int idJugador, int equipo, string puesto, bool esInvitado)
         {
-            repository.Guardar(idJuego, idJugador, equipo, puesto);
+            repository.Guardar(idJuego, idJugador, equipo, puesto, esInvitado);
             return RedirectToAction("Index", "Mejengas", new { idJuego, idJugador });
 
         }

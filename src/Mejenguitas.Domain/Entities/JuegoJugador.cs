@@ -16,7 +16,7 @@ namespace Mejenguitas.Domain.Entities
         public int Equipo { get; set; }
         public int CantLesionados { get; set; }
         public int CantGoles { get; set; }
-
+        public bool EsInvitado { get; set; }
         //Child Entities
 
     }

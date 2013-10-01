@@ -47,7 +47,7 @@ namespace Mejenguitas_UI.Controllers
             {
                 if (idJugador != 0)
                 {
-                    estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id) == null ? false : true;
+                    estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id && jj.EsInvitado==false) == null ? false : true;
                 }
 
                 if (juegoActual != null)
@@ -63,7 +63,7 @@ namespace Mejenguitas_UI.Controllers
         }
 
         #region Others
-        public FileContentResult ObtenerImagen(int idJugador)
+        public FileContentResult ObtenerImagen(int idJugador, bool esInvitado)
         {
             Jugador g = jugadorRepository.Jugadores.FirstOrDefault(j => j.Id == idJugador); ;
             if (g != null && g.Avatar != null && g.AvatarMimeType != string.Empty)

@@ -14,12 +14,15 @@ namespace Mejenguitas.Domain.Concrete
 
         public IQueryable<JuegoJugador> JuegosJugadores { get { return context.JuegosJugadores; } }
 
-        public void Guardar(int idJuego, int idJugador,  int equipo, string puesto)
+        public void Guardar(int idJuego, int idJugador, int equipo, string puesto, bool esInvitado)
         {
-            JuegoJugador juegoJugador = context.JuegosJugadores.FirstOrDefault(j => j.IdJuego == idJuego && j.IdJugador == idJugador);
+            JuegoJugador juegoJugador= null;
+            if(!esInvitado)
+                juegoJugador = context.JuegosJugadores.FirstOrDefault(j => j.IdJuego == idJuego && j.IdJugador == idJugador && j.EsInvitado == esInvitado);
+
             if (juegoJugador == null)
             {
-                juegoJugador = new JuegoJugador { IdJuego = idJuego, IdJugador = idJugador, Puesto = puesto, Equipo = equipo };
+                juegoJugador = new JuegoJugador { IdJuego = idJuego, IdJugador = idJugador, Puesto = puesto, Equipo = equipo , EsInvitado=esInvitado};
                 context.JuegosJugadores.Add(juegoJugador);
             }
             else

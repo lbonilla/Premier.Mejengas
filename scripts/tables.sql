@@ -50,7 +50,8 @@ create table JuegoJugador(
 	Numero int,
 	Equipo int,
 	CantLesionados int,
-	CantGoles int
+	CantGoles int,
+	EsInvitado bit DEFAULT 0,
 	CONSTRAINT FK_JuegoJugador_Juego FOREIGN KEY(IdJuego)
 	REFERENCES Juego(Id),
 	CONSTRAINT FK_JuegoJugador_Jugador FOREIGN KEY(IdJugador)

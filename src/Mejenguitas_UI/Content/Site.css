@@ -48,6 +48,8 @@
 .myPlayer {
     position: relative;
     float: left;
+    border-color: black;
+    border: 1px solid black;
 }
 
 .invitado {
@@ -61,13 +63,39 @@
     height: 60px;
     position: relative;
     float: left;
+    margin-left: 5px;
+    border-color: black;
+    border: 1px solid black;
+}
+
+.disponibleBanca {
+    position: relative;
+    float: left;
+    border-color: black;
+    border: 1px solid black;
+}
+
+.jugadoresBancaA {
+    position: relative;
+    margin-left: 15px;
+    height:70px;
+    margin-top: 10px;
+    width:180px;
+}
+
+.jugadoresBancaB {
+    position: relative;    
+    float:right;
+    height:70px;
+    margin-top: 10px;
+    width:180px;
+    margin-right:15px;
 }
 
 .jugadoresDisponibles {
+    margin-top: 10px;
     height: 70px;
-    width: 310px;
-    border-color: black;
-    border: 5px solid black;
+    width: 300px;
 }
 
 .contentData {
@@ -112,6 +140,10 @@
     background-size: 100%;
     width: 60px;
     height: 60px;
+}
+
+.invitadoInscrito {
+    color: #FFF;
 }
 
 .flexslider .slides img {

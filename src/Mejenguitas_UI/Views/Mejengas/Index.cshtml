@@ -15,70 +15,77 @@
         </div>
         @foreach (var j in @Model.JugadoresInscritos)
         {            
-            <div class="player">
-                <img id="@j.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @j.IdJugador })" data-Equipo="@j.Equipo" data-Numero="@j.Numero" data-Puesto="@j.Puesto" HEIGHT="60" WIDTH="60" BORDER="0" />
+            <div class="player" data-Equipo="@j.Equipo" data-Numero="@j.Numero" data-Puesto="@j.Puesto"  data-EsInvitado= "@j.EsInvitado">
+                <img id="@j.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @j.IdJugador, esInvitado = @j.EsInvitado })" HEIGHT="60" WIDTH="60" BORDER="0" />
+                @if (@j.EsInvitado)
+                {
+                    <p>Invitado</p>
+                }
             </div>                 
         }
-        <div class="disponible equipoA" id="1P">
-            <div class="contentData" data-equipo="1" data-puesto="P">
-            </div>
+        <div class="disponible equipoA" id="1P" data-equipo="1" data-puesto="P">
         </div>
-        <div class="disponible equipoA" id="1DF1">
-            <div class="contentData" data-equipo="1" data-puesto="DF1">
-            </div>
+        <div class="disponible equipoA" id="1DF1" data-equipo="1" data-puesto="DF1">
         </div>
-        <div class="disponible equipoA" id="1DF2">
-            <div class="contentData" data-equipo="1" data-puesto="DF2">
-            </div>
+        <div class="disponible equipoA" id="1DF2" data-equipo="1" data-puesto="DF2">
         </div>
-        <div class="disponible equipoA" id="1D1">
-            <div class="contentData" data-equipo="1" data-puesto="D1">
-            </div>
+        <div class="disponible equipoA" id="1D1" data-equipo="1" data-puesto="D1">
         </div>
-        <div class="disponible equipoA" id="1D2">
-            <div class="contentData" data-equipo="1" data-puesto="D2">
-            </div>
+        <div class="disponible equipoA" id="1D2" data-equipo="1" data-puesto="D2">
         </div>
-        <div class="disponible equipoB" id="2P">
-            <div class="contentData" data-equipo="2" data-puesto="P">
-            </div>
+        <div class="disponible equipoB" id="2P" data-equipo="2" data-puesto="P">
         </div>
-        <div class="disponible equipoB" id="2DF1">
-            <div class="contentData" data-equipo="2" data-puesto="DF1">
-            </div>
+        <div class="disponible equipoB" id="2DF1" data-equipo="2" data-puesto="DF1">
         </div>
-        <div class="disponible equipoB" id="2DF2">
-            <div class="contentData" data-equipo="2" data-puesto="DF2">
-            </div>
+        <div class="disponible equipoB" id="2DF2" data-equipo="2" data-puesto="DF2">
         </div>
-        <div class="disponible equipoB" id="2D1">
-            <div class="contentData" data-equipo="2" data-puesto="D1">
-            </div>
+        <div class="disponible equipoB" id="2D1" data-equipo="2" data-puesto="D1">
         </div>
-        <div class="disponible equipoB" id="2D2">
-            <div class="contentData" data-equipo="2" data-puesto="D2">
-            </div>
+        <div class="disponible equipoB" id="2D2" data-equipo="2" data-puesto="D2">
         </div>
     </div>
-    <div class="col-xs-3">
-        @if (@Model.IdJugador != 0)
-        {    
-            <div class="jugadoresDisponibles">
-                @if (@Model.EstaInscrito == false)
-                {
-                    <div class="myPlayer">
-                        <img id="@Model.IdJugador " src="@Url.Action("ObtenerImagen", new { idJugador = @Model.IdJugador })" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador" HEIGHT="60" WIDTH="60" BORDER="0" style="position:relative"/>
-                    </div>
-                }
-                <div>
-                    <div id="myInvitado1" class="invitado"></div>
-                    <div id="myInvitado2" class="invitado"></div>
-                    <div id="myInvitado3" class="invitado"></div>
-                    <div id="myInvitado4" class="invitado"></div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="jugadoresBancaA">
+                <div class="disponibleBanca equipoA " id="1B" data-equipo="1" data-puesto="B">
+                </div>
+                <div class="disponibleBanca equipoA banca" id="2B" data-equipo="1" data-puesto="B">
+                </div>
+                <div class="disponibleBanca equipoA banca" id="3B" data-equipo="1" data-puesto="B">
                 </div>
             </div>
-        }
-
+        </div>
+        <div class="col-xs-4">
+            @if (@Model.IdJugador != 0)
+            {    
+                <div class="jugadoresDisponibles">
+                    @if (@Model.EstaInscrito == false)
+                    {
+                        <div class="myPlayer"  data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                            <img id="@Model.IdJugador " src="@Url.Action("ObtenerImagen", new { idJugador = @Model.IdJugador, esInvitado = false })" HEIGHT="60" WIDTH="60" BORDER="0" style="position:relative"/>
+                        </div>
+                    }
+                    <div>
+                        <div id="myInvitado1" class="invitado" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        </div>
+                        <div id="myInvitado2"  class="invitado" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        </div>
+                        <div id="myInvitado3"  class="invitado" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-xs-4">
+            <div class="jugadoresBancaB">
+                <div class="disponibleBanca equipoB " id="1B" data-equipo="2" data-puesto="B">
+                </div>
+                <div class="disponibleBanca equipoB banca" id="2B" data-equipo="2" data-puesto="B">
+                </div>
+                <div class="disponibleBanca equipoB banca" id="3B" data-equipo="2" data-puesto="B">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

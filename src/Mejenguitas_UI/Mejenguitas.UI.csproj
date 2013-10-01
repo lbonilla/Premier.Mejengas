@@ -158,8 +158,8 @@
     <Compile Include="Infrastructure\Concrete\FormsAuthProvider.cs" />
     <Compile Include="Infrastructure\NinjectDependecyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Images\camisaBlanca.PNG" />
-    <Content Include="Images\camisaRoja.PNG" />
+    <Content Include="Content\images\camisaBlanca.PNG" />
+    <Content Include="Content\images\camisaRoja.PNG" />
     <Content Include="Scripts\Mejengas.js" />
   </ItemGroup>
   <ItemGroup>

@@ -5,13 +5,16 @@ $(function () {
 
     //SubscribeTogame(26, 11, "1D1");
     var pivoteX = (($("#divfield").offset().left + $("#divfield").width() / 2)) - 230;
-    var pivoteY = (569/2)-30;
+    var pivoteY = (569 / 2) - 30;
     var topImage = $("#divfield").offset().top;
     var imagHeight = 60;
 
     $(".player").each(function () {
-        var puesto = $("img", this).attr("data-Puesto");
-        var equipo = $("img", this).attr("data-Equipo");
+        var puesto = $(this).attr("data-Puesto");
+        var equipo = $(this).attr("data-Equipo");
+        var esInvitado = $(this).attr("data-EsInvitado");
+
+
         var posX = 0;
         var posY = 0;
         if (equipo == 1) {
@@ -64,12 +67,18 @@ $(function () {
         }
 
         $(this).css({ position: "absolute", left: posX, top: posY });
-        $("#" + equipo + puesto).hide();
+        $("#" + equipo + puesto).remove();
+
+        if (esInvitado === "True") {
+            $(".invitado:first").remove();
+            $(this).addClass("invitadoInscrito");
+        }
+
     });
 
     $(".disponible").each(function () {
-        var puesto = $("div", this).attr("data-Puesto");
-        var equipo = $("div", this).attr("data-Equipo");
+        var puesto = $(this).attr("data-Puesto");
+        var equipo = $(this).attr("data-Equipo");
         var posX = 0;
         var posY = 0;
         if (equipo == 1) {
@@ -125,12 +134,13 @@ $(function () {
     });
 
     //Set dragable settings
-    if ($(".myPlayer") != null)
+    if ($(".myPlayer") != null) {
         $(".myPlayer").draggable(
             {
                 appendTo: ".disponible",
                 opacity: 0.35,
                 zIndex: 100,
+                snap: true,
                 start: function (event, ui) {
                     xpos = ui.position.left;
                     ypos = ui.position.top;
@@ -140,44 +150,58 @@ $(function () {
                         $(this).animate({ top: ypos, left: xpos }, 500);
                     }
 
-                },
-                snap: true
+                }
             }
             );
+    }
 
+    if ($(".invitado") != null) {
+        $(".invitado").draggable(
+        {
+            appendTo: ".disponible",
+            opacity: 0.35,
+            zIndex: 100,
+            start: function (event, ui) {
+                xpos = ui.position.left;
+                ypos = ui.position.top;
+            },
+            stop: function (event, ui) {
+                if (!$(this).parent().hasClass("disponible")) {
+                    $(this).animate({ top: ypos, left: xpos }, 500);
+                }
+
+            },
+            snap: true
+        });
+    }
 
     $(".disponible").droppable({
         drop: function (event, ui) {
 
-            var idJuego = $("img", ui.draggable).attr('data-idJuego');
-            var idJugador = $("img", ui.draggable).attr('data-idJugador');
+            var idJuego = $(ui.draggable).attr('data-idJuego');
+            var idJugador = $(ui.draggable).attr('data-idJugador');
+            var esInvitado = $(ui.draggable).hasClass("invitado");
 
-            var equipo = $("div.contentData", this).attr("data-equipo");
-            var puesto = $("div.contentData", this).attr("data-puesto");
+            var equipo = $(this).attr("data-equipo");
+            var puesto = $(this).attr("data-puesto");
 
             $(ui.draggable).detach().css({ top: 0, left: 0 }).appendTo(this)
-            $(this).children('.disponibleContent:first').remove();
 
-            SubscribeTogame(idJuego, idJugador, equipo, puesto)
+            SubscribeTogame(idJuego, idJugador, equipo, puesto, esInvitado)
         }
-    });
-
-
-    $(window).resize(function () {
-
     });
 
 });
 
-function SubscribeTogame(idJuego, idJugador, equipo, puesto) {
+function SubscribeTogame(idJuego, idJugador, equipo, puesto, esInvitado) {
     $.ajax({
         async: false,
         type: 'post',
         dataType: 'html',
         url: 'JuegoJugador/Subscribir',
-        data: { idJuego: idJuego, idJugador: idJugador, equipo: equipo, puesto: puesto },
+        data: { idJuego: idJuego, idJugador: idJugador, equipo: equipo, puesto: puesto, esInvitado: esInvitado },
         success: function (data) {
-           window.location.reload();
+            window.location.reload();
         }
     });
 }

@@ -11,6 +11,6 @@ namespace Mejenguitas.Domain.Abstract
     {
         IQueryable<JuegoJugador> JuegosJugadores { get; }
 
-        void Guardar(int idJuego, int idJugador, int equipo,string puesto);
+        void Guardar(int idJuego, int idJugador, int equipo, string puesto, bool esInvitado);
     }
 }
