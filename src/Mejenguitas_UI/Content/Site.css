@@ -150,3 +150,13 @@
     width: 210px;
     height: 150px;
 }
+
+.text-white 
+{
+    color: #fff;
+    text-align:center;
+}
+
+.titleJuego {
+    text-align:center;    
+}

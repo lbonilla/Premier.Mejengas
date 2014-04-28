@@ -11,6 +11,7 @@ namespace Mejenguitas_UI.Models
         public List<JuegoJugador> JugadoresInscritos { get; set; }
         public bool EstaInscrito { get; set; }
         public Juego Juego { get; set; }
-        public int IdJugador{get;set;}
+        public int IdJugador { get; set; }
+        public List<Jugador> Jugadores { get; set; }
     }
 }

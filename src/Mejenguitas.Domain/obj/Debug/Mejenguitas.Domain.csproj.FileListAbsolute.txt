@@ -5,3 +5,4 @@ C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\D
 C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\bin\Debug\EntityFramework.xml
 C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.dll
 C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.pdb
+C:\Users\lbonilla\Documents\GitHub\Premier.Mejengas\src\Mejenguitas.Domain\obj\Debug\Mejenguitas.Domain.csprojResolveAssemblyReference.cache

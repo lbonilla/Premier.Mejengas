@@ -47,18 +47,20 @@ namespace Mejenguitas_UI.Controllers
             {
                 if (idJugador != 0)
                 {
-                    estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id && jj.EsInvitado==false) == null ? false : true;
+                    estaInscrito = juegoJugadorRepository.JuegosJugadores.FirstOrDefault(jj => jj.IdJugador == idJugador && jj.IdJuego == juegoActual.Id && jj.EsInvitado == false) == null ? false : true;
                 }
 
                 if (juegoActual != null)
                     jugadoresInscritos = juegoJugadorRepository.JuegosJugadores.Where(jj => jj.IdJuego == juegoActual.Id).ToList();
             }
+
             return View(new JuegoJugadorViewModel
             {
                 Juego = juegoActual,
                 JugadoresInscritos = jugadoresInscritos,
                 EstaInscrito = estaInscrito,
-                IdJugador = idJugador
+                IdJugador = idJugador,
+                Jugadores = jugadorRepository.Jugadores.ToList()
             });
         }
 

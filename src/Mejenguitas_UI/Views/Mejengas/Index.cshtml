@@ -9,14 +9,24 @@
     <title>Index</title>
 </head>
 <body>
+    @if(Model.Juego !=null){
+        <h1 class="titleJuego">@Model.Juego.Lugar</h1>
+    }else
+    {
+        <h1 class="titleJuego">Siguiente Juego Por Definir</h1>
+    }
     <div class="col-xs-12">
         <div id="divfield">
             <img id="imgField" src="~/Content/images/schematic-green-soccer-field.jpg" />
         </div>
         @foreach (var j in @Model.JugadoresInscritos)
         {            
-            <div class="player" data-Equipo="@j.Equipo" data-Numero="@j.Numero" data-Puesto="@j.Puesto"  data-EsInvitado= "@j.EsInvitado">
-                <img id="@j.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @j.IdJugador, esInvitado = @j.EsInvitado })" HEIGHT="60" WIDTH="60" BORDER="0" />
+            <div class="player" data-Equipo="@j.Equipo" data-Numero="@j.Numero" data-Puesto="@j.Puesto"  data-EsInvitado= "@j.EsInvitado">  
+                @{
+                 var jugador = Model.Jugadores.FirstOrDefault(x => x.Id == j.IdJugador);
+                }
+                <img id="@j.IdJugador "  src="@Url.Action("ObtenerImagen", new { idJugador = @j.IdJugador, esInvitado = @j.EsInvitado })" HEIGHT="60" WIDTH="60" BORDER="0"  title="@jugador.Nombre"/>
+                <h4 class="text-white">@jugador.NickName</h4>
                 @if (@j.EsInvitado)
                 {
                     <p>Invitado</p>
@@ -61,16 +71,16 @@
                 <div class="jugadoresDisponibles">
                     @if (@Model.EstaInscrito == false)
                     {
-                        <div class="myPlayer"  data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        <div class="myPlayer"  data-idJuego="@(Model.Juego!=null? Model.Juego.Id:0)" data-idJugador="@Model.IdJugador">
                             <img id="@Model.IdJugador " src="@Url.Action("ObtenerImagen", new { idJugador = @Model.IdJugador, esInvitado = false })" HEIGHT="60" WIDTH="60" BORDER="0" style="position:relative"/>
                         </div>
                     }
                     <div>
-                        <div id="myInvitado1" class="invitado" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        <div id="myInvitado1" class="invitado" data-idJuego="@(Model.Juego!=null? Model.Juego.Id:0)" data-idJugador="@Model.IdJugador">
                         </div>
-                        <div id="myInvitado2"  class="invitado" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        <div id="myInvitado2"  class="invitado" data-idJuego="@(Model.Juego!=null? Model.Juego.Id:0)" data-idJugador="@Model.IdJugador">
                         </div>
-                        <div id="myInvitado3"  class="invitado" data-idJuego="@Model.Juego.Id" data-idJugador="@Model.IdJugador">
+                        <div id="myInvitado3"  class="invitado" data-idJuego="@(Model.Juego!=null? Model.Juego.Id:0)" data-idJugador="@Model.IdJugador">
                         </div>
                     </div>
                 </div>
